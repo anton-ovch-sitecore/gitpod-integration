@@ -9,7 +9,8 @@ ports:
   - name: Rendering Host
     description: Rendering Host public port
     port: 3000
-    onOpen: open-browser    
+    onOpen: open-browser   
+    visibility : public
 
 vscode:
   extensions:

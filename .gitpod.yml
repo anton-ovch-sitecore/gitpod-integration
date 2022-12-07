@@ -3,8 +3,8 @@ image:
 
 tasks:
   - name: Start Rendering Host
-    init: npm install
-    command: npm run start:connected
+    init: npm install --prefix ./src/sxastarter
+    command: npm run start:connected --prefix ./src/sxastarter
 
 vscode:
   extensions:

@@ -2,7 +2,9 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - command: pwsh
+  - name: Start Rendering Host
+    init: npm install
+    command: npm run start:connected
 
 vscode:
   extensions:

@@ -10,8 +10,8 @@ tasks:
       --data-binary @- << EOF
        {
         "userEmail": "test from gitpod",
-        "workplaceUrl": "test from gitpod",
-        "renderingHostPublicUrl": "test from gitpod"
+        "workplaceUrl": "$(gp url)",
+        "renderingHostPublicUrl": $(gp url),
        }
       EOF
     command: |

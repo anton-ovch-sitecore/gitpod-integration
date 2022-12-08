@@ -7,8 +7,7 @@ tasks:
       npm install --prefix ./src/sxastarter
       workspace_url=$(gp url)
       rendering_host_public_url="${workspace_url/https:'//'/https://"3000-"}"
-      gp env PUBLIC_URL=${rendering_host_public_url}
-      $(gp env -e)
+      eval $(gp env -e PUBLIC_URL=${rendering_host_public_url})
       curl -0 -v -X POST http://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
       -H 'Content-Type: application/json' \
       -d '{"userEmail": "'$(git config user.email)'","workplaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'

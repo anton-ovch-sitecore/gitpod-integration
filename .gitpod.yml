@@ -9,7 +9,7 @@ tasks:
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
       curl -0 -v -X POST http://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
       -H 'Content-Type: application/json' \
-      -d '{"userEmail": "anton.ovcharenko@sitecore.com","workplaceUrl": "$(gp url)","renderingHostPublicUrl":  "fsdfsdfsdfsd"}'
+      -d '{"userEmail": "anton.ovcharenko@sitecore.com","workplaceUrl": "'$(gp url)'","renderingHostPublicUrl":  "'workplace_url'"}'
     command: |
       workspace_url=$(gp url)
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"

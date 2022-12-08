@@ -4,19 +4,10 @@ image:
 tasks: 
   - name: Start Rendering Host
     init: |
-    (
       workspace_url=$(gp url)
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
       curl -0 -v -X POST http://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
-      -H 'Content-Type: application/json' \
-      --data-binary @- << EOF
-      {
-        "userEmail": "test from gitpod",
-        "workplaceUrl": "$(gp url)",
-        "renderingHostPublicUrl": "$(printenv PUBLIC_URL)"
-      }
-      EOF
-     )
+      -H 'Content-Type: application/json'
     command: |
       workspace_url=$(gp url)
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"

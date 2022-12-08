@@ -10,7 +10,7 @@ tasks:
       export PUBLIC_URL="${rendering_host_public_url}"
       curl -0 -v -X POST http://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
       -H 'Content-Type: application/json' \
-      -d '{"userEmail": "anton.ovcharenko@sitecore.com","workplaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'
+      -d '{"userEmail": "'$(git config user.email)'","workplaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'
     command: |
       npm run start:connected --prefix ./src/sxastarter
 ports:

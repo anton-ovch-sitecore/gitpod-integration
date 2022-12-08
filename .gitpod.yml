@@ -3,7 +3,8 @@ image:
 
 tasks:
   - init: |
-      echo "Hello $(gp url)"
+      workspace_url=$(gp url)
+      export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
       
   - name: Start Rendering Host
     init: npm install --prefix ./src/sxastarter

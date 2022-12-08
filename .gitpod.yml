@@ -4,6 +4,7 @@ image:
 tasks: 
   - name: Start Rendering Host
     init: |
+    (
       workspace_url=$(gp url)
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
       curl -0 -v -X POST http://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
@@ -15,6 +16,7 @@ tasks:
         "renderingHostPublicUrl": "$(printenv PUBLIC_URL)"
       }
       EOF
+     )
     command: |
       workspace_url=$(gp url)
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"

@@ -2,6 +2,11 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: e2e Tests
+    command: |
+      workspace_url=$(gp url)
+      export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
+
   - name: Start Rendering Host
     init: npm install --prefix ./src/sxastarter
     command: npm run start:connected --prefix ./src/sxastarter

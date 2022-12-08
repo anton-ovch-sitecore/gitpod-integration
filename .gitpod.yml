@@ -13,8 +13,8 @@ tasks:
         "userEmail": "test from gitpod",
         "workplaceUrl": "$(gp url)",
         "renderingHostPublicUrl": "$(printenv PUBLIC_URL)"
-       }
-       EOF
+      }
+      EOF
     command: |
       workspace_url=$(gp url)
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"

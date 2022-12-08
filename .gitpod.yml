@@ -1,13 +1,11 @@
 image:
   file: .gitpod.Dockerfile
 
-tasks:
-  - init: |
-      workspace_url=$(gp url)
-      export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
-      
+tasks: 
   - name: Start Rendering Host
-    init: npm install --prefix ./src/sxastarter
+    init: |
+      npm install --prefix ./src/sxastarter
+      echo TEST
     command: npm run start:connected --prefix ./src/sxastarter
 ports:
   - name: Rendering Host

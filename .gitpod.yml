@@ -4,16 +4,17 @@ image:
 tasks: 
   - name: Start Rendering Host
     init: |
-      npm install --prefix ./src/sxastarter
-      curl -0 -v -X POST https://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
+      workspace_url=$(gp url)
+      export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
+      curl -0 -v -X POST http://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
       -H 'Content-Type: application/json' \
       --data-binary @- << EOF
-       {
-        "userEmail": "test from gitpod",
-        "workplaceUrl": "$(gp url)",
-        "renderingHostPublicUrl": "$(gp url)",
-       }
-      EOF
+        {
+          "userEmail": "test from gitpod",
+          "workplaceUrl": "$(gp url)",
+          "renderingHostPublicUrl": "$(printenv PUBLIC_URL)"
+        }
+        EOF
     command: |
       workspace_url=$(gp url)
       export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"

@@ -11,7 +11,7 @@ tasks:
        {
         "userEmail": "test from gitpod",
         "workplaceUrl": "$(gp url)",
-        "renderingHostPublicUrl": $(gp url),
+        "renderingHostPublicUrl": "$(gp url)",
        }
       EOF
     command: |

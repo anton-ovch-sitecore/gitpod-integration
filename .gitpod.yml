@@ -6,10 +6,11 @@ tasks:
     init: |
       npm install --prefix ./src/sxastarter
       workspace_url=$(gp url)
-      export PUBLIC_URL="${workspace_url/https:'//'/https://"3000-"}"
+      rendering_host_public_url="${workspace_url/https:'//'/https://"3000-"}"
+      export PUBLIC_URL="${rendering_host_public_url}"
       curl -0 -v -X POST http://673d-145-224-100-85.eu.ngrok.io/WorkplaceRegistration \
       -H 'Content-Type: application/json' \
-      -d '{"userEmail": "anton.ovcharenko@sitecore.com","workplaceUrl": "'$(gp url)'","renderingHostPublicUrl":  "'$(printenv PUBLIC_URL)'"}'
+      -d '{"userEmail": "anton.ovcharenko@sitecore.com","workplaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'
     command: |
       npm run start:connected --prefix ./src/sxastarter
 ports:

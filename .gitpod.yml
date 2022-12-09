@@ -6,7 +6,7 @@ tasks:
   - before: |
       cd ./src/sxastarter/ 
       echo "Workplace registration starting in XMCloud..."
-      workplace_id= $(printenv GITPOD_WORKSPACE_ID)
+      workplace_id= $(printenv GITPOD_WORKPLACE_ID)
       workspace_url=$(gp url)
       rendering_host_public_url="${workspace_url/https:'//'/https://"3000-"}"
       eval $(gp env -e PUBLIC_URL=${rendering_host_public_url})

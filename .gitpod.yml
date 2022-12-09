@@ -4,7 +4,8 @@ image:
 tasks: 
   - name: Start Rendering Host
   - before: |
-      cd ./src/sxastarter/ 
+      rendering_host_path=$(jq -r .renderingHosts.xmcloudpreview.path  xmcloud.build.json)
+      cd ${rendering_host_path}
       echo "Workspace registration starting in XMCloud..."
       workspace_id=$(printenv GITPOD_WORKSPACE_ID)
       echo "workspaceID"

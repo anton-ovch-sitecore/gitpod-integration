@@ -6,7 +6,7 @@ tasks:
   - before: |
       cd ./src/sxastarter/ 
       echo "Workspace registration starting in XMCloud..."
-      workspace_id= printenv GITPOD_WORKSPACE_ID
+      workspace_id=$(printenv GITPOD_WORKSPACE_ID)
       echo "workspaceID"
       echo ${workspace_id}
       workspace_url=$(gp url)

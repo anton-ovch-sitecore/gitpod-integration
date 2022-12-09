@@ -3,8 +3,9 @@ image:
 
 tasks: 
   - name: Start Rendering Host
+  - before: cd ./src/sxastarter/ 
     init: |
-      npm install --prefix ./src/sxastarter
+      npm install
       workspace_url=$(gp url)
       rendering_host_public_url="${workspace_url/https:'//'/https://"3000-"}"
       eval $(gp env -e PUBLIC_URL=${rendering_host_public_url})
@@ -12,7 +13,7 @@ tasks:
       -H 'Content-Type: application/json' \
       -d '{"userEmail": "'$(git config user.email)'","workplaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'
     command: |
-      npm run start:connected --prefix ./src/sxastarter
+      npm run start:connected
 ports:
   - name: Rendering Host
     description: Rendering Host public port

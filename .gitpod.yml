@@ -3,7 +3,9 @@ image:
 
 tasks: 
   - name: Start Rendering Host
-  - before: cd ./src/sxastarter/ 
+  - before: |
+      cd ./src/sxastarter/ 
+      echo "BEFORE TASK"
     init: |
       npm install
       workspace_url=$(gp url)

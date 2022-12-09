@@ -5,15 +5,15 @@ tasks:
   - name: Start Rendering Host
   - before: |
       cd ./src/sxastarter/ 
-      echo "Workplace registration starting in XMCloud..."
-      workplace_id= $(printenv GITPOD_WORKPLACE_ID)
+      echo "Workspace registration starting in XMCloud..."
+      workspace_id= $(printenv GITPOD_WORKSPACE_ID)
       workspace_url=$(gp url)
       rendering_host_public_url="${workspace_url/https:'//'/https://"3000-"}"
       eval $(gp env -e PUBLIC_URL=${rendering_host_public_url})
-      curl -0 -v -X POST http://2785-194-110-2-69.eu.ngrok.io/workplaceregistration \
+      curl -0 -v -X POST https://bd64-194-110-2-69.eu.ngrok.io/WorksplaceRegistration \
       -H 'Content-Type: application/json' \
-      -d '{"workplaceId":"'${workplace_id}'","userEmail": "'$(git config user.email)'","workplaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'
-      echo "Workplace registration finished in XMCloud..."
+      -d '{"workspaceId":"'${workspace_id}'","userEmail": "'$(git config user.email)'","workspaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'
+      echo "Workspace registration finished in XMCloud..."
     init: |
       npm install
     command: |

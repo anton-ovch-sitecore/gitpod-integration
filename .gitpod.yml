@@ -22,7 +22,3 @@ ports:
     port: 3000
     onOpen: open-browser   
     visibility : public
-
-vscode:
-  extensions:
-    - ms-vscode.powershell-preview

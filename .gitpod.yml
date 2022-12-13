@@ -1,6 +1,3 @@
-image:
-  file: .gitpod.Dockerfile
-
 tasks: 
   - name: Start Rendering Host
   - before: |
@@ -15,8 +12,7 @@ tasks:
       -H 'Content-Type: application/json' \
       -d '{"workspaceId":"'${workspace_id}'","userEmail": "'$(git config user.email)'","workspaceUrl": "'${workspace_url}'","renderingHostPublicUrl":  "'${rendering_host_public_url}'"}'
       echo "Workspace registration finished in XMCloud..."
-    init: |
-      npm install
+    init: npm install
     command: |
       echo "Starting rendering host"
       npm run start:connected

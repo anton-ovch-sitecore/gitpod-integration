@@ -34,6 +34,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
     <>
       <Scripts />
       <Head>
+        <h1>Demo content</h1>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
